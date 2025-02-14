@@ -1,6 +1,7 @@
 /* 기본 스타일 */
 body {
-    font-family:'Malgun Gothic', sans-serif;
+    font-family:"맑은 고딕", "Segoe UI";
+    font-weight: 900px;
     margin: 0;
     padding: 0;
     background-color: #f1f1f1;  /* 전체 바탕색 설정 */
@@ -11,7 +12,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;       /* 원하는 너비로 조정 */
+    width: 240px;       /* 원하는 너비로 조정 */
     height: 100%;       /* 전체 높이 */
     background: #ff9720;
     padding: 15px;
@@ -26,20 +27,27 @@ body {
 
 .top-nav a {
     display: block;
-    width: 180px;            /* 고정된 너비 */
-    height: 40px;            /* 고정된 높이 */
-    line-height: 40px;       /* 텍스트를 수직 중앙 정렬 (높이와 동일하게 설정) */
+    width: 220px;            /* 고정된 너비 */
+    height: 50px;            /* 고정된 높이 */
+    line-height: 50px;       /* 텍스트를 수직 중앙 정렬 (높이와 동일하게 설정) */
     text-align: center;      /* 텍스트를 수평 중앙 정렬 */
-    color: rgb(24, 24, 24);
+    color: rgb(31, 31, 31);
     text-decoration: none;
-    margin-bottom: 20px;
-    font-size: 16px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 900;
     font-weight: bold;
-    background: #fff23d;      /* 버튼에 채워질 배경색 */
-    border: 1px solid #191919; /* 흰색 테두리 */
-    border-radius: 8px;      /* 둥근 모서리 (선택 사항) */
-}
+    background: #fff759;      /* 버튼에 채워질 배경색 */
+    border: 3px solid #2b2b2b; /* 흰색 테두리 */
+    border-radius: 10px;      /* 둥근 모서리 (선택 사항) */
+    font-family:"맑은 고딕", "Segoe UI";
+    
+    }
 
+  /* 호버 효과 */
+  .top-nav a:hover {
+      background-color: #ffaa00;
+  }
 /* 각 섹션을 화면 전체 크기로 지정 */
 section {
     width: 100%;
@@ -82,6 +90,8 @@ section {
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    font-family:"맑은 고딕", "Segoe UI";
+    font-weight: bold;
   }
   
 /* 트레이닝 컨테이너 */
@@ -120,6 +130,8 @@ button {
     color: rgb(41, 41, 41);
     font-size: 16px;
     border-radius: 25px; /* 버튼에 동그란 테두리 적용 */
+    font-family:"맑은 고딕", "Segoe UI";
+    font-weight: bold;
 }
 
 button:hover {
@@ -160,6 +172,7 @@ input {
   padding: 15px;           /* 내부 여백 */
   margin: 20px 0;          /* 외부 여백 */
   border-radius: 5px;      /* 모서리 둥글게 (선택 사항) */
+  border: 5px solid #ff5900; /* 흰색 테두리 */
   background-color: #f9f9f9; /* 배경색 (선택 사항) */
   margin-bottom: 3px; /* 단락 사이의 간격 조절 */
   line-height: 0.5; /* 숫자는 기본 폰트 크기의 배수, 또는 '24px' 같이 고정값 사용 가능 */
@@ -167,6 +180,9 @@ input {
 
 .example-box h3 {
   margin-top: 0; /* 상단 마진 제거 */
+}
+html, body {
+  overflow-x: hidden;
 }
 
   
