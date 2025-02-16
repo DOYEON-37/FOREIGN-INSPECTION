@@ -82,6 +82,7 @@
       display: block;
       margin: 0 auto;
     }
+    
 
     /* 기존 각 섹션에 적용된 padding-top은 무시(HTML inline 스타일로 덮어씀) */
 
@@ -122,6 +123,12 @@
       <video controls style="max-width:80%; max-height:80vh; display:block; margin:0 auto;">
         <source src="images/method.mp4" type="video/mp4">
         브라우저가 동영상을 지원하지 않습니다.
+        <video controls>
+          <source src="video.mp4" type="video/mp4">
+          <source src="video.webm" type="video/webm">
+          <source src="video.ogv" type="video/ogg">
+          Your browser does not support the video tag.
+        </video>        
       </video>
     </section>
 
