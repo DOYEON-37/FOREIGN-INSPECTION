@@ -101,6 +101,15 @@
     <a href="#training">트레이닝</a>
   </nav>
 
+  <header id="product-education">
+    <div class="product-nav">
+      <button class="btn-eposis" onclick="showProduct('eposis')">에포시스</button>
+      <button class="btn-caretropin" onclick="showProduct('caretropin')">케어트로핀</button>
+      <button class="btn-egf" onclick="showProduct('egf')">이지에프외용액</button>
+      <button class="btn-rhBMP2" onclick="showProduct('rhBMP2')">rhBMP-2</button>
+    </div>
+  </header>
+
   <!-- 전체 섹션을 감싸는 컨테이너 (우측 이동) -->
   <div style="margin-left:260px;"> 
     <!-- 홈 섹션 (이미 홈은 동일하게 설정됨) -->
@@ -108,6 +117,7 @@
       <img src="images/first1.png" alt="기본 화면 이미지">
     </section>
 
+    
     <!-- 섹션 1: 이물검사 목적과 중요성 -->
     <section id="purpose" style="height:100vh; display:flex; justify-content:center; align-items:center; padding:0;">
       <img src="images/purpose.png" alt="이물검사 목적">
@@ -119,17 +129,59 @@
     </section>
 
     <!-- 섹션 3: 이물검사 방법 -->
+    <!-- 예: 섹션 3: 이물검사 방법 (제품별 콘텐츠) -->
     <section id="method" style="height:100vh; display:flex; justify-content:center; align-items:center; padding:0;">
-      <video controls style="max-width:80%; max-height:80vh; display:block; margin:0 auto;">
-        <source src="images/method.mp4" type="video/mp4">
-        브라우저가 동영상을 지원하지 않습니다.
-      </video>
+      <!-- 에포시스 콘텐츠 -->
+      <div class="product-section" data-product="eposis">
+        <video controls style="max-width:80%; max-height:80vh; display:block; margin:0 auto;">
+          <source src="images/method_eposis.mp4" type="video/mp4">
+          브라우저가 동영상을 지원하지 않습니다.
+        </video>
+      </div>
+      <!-- 케어트로핀 콘텐츠 -->
+      <div class="product-section" data-product="caretropin">
+        <video controls style="max-width:80%; max-height:80vh; display:block; margin:0 auto;">
+          <source src="images/method_caretropin.mp4" type="video/mp4">
+          브라우저가 동영상을 지원하지 않습니다.
+        </video>
+      </div>
+      <!-- 이지에프외용액 콘텐츠 (이전 ezif → egf) -->
+      <div class="product-section" data-product="egf">
+        <video controls style="max-width:80%; max-height:80vh; display:block; margin:0 auto;">
+          <source src="images/method_egf.mp4" type="video/mp4">
+          브라우저가 동영상을 지원하지 않습니다.
+        </video>
+      </div>
+      <!-- rhBMP-2 콘텐츠 -->
+      <div class="product-section" data-product="rhBMP2">
+        <video controls style="max-width:80%; max-height:80vh; display:block; margin:0 auto;">
+          <source src="images/method_rhBMP2.mp4" type="video/mp4">
+          브라우저가 동영상을 지원하지 않습니다.
+        </video>
+      </div>
     </section>
 
     <!-- 섹션 4: 결함 유형별 중요도 -->
+   <!-- 예: 섹션 4: 결함 유형별 중요도 (제품별 콘텐츠) -->
     <section id="importance" style="height:100vh; display:flex; justify-content:center; align-items:center; padding:0;">
-      <img src="images/importance.png" alt="결함 유형별 중요도">
+      <!-- 에포시스 콘텐츠 -->
+      <div class="product-section" data-product="eposis">
+        <img src="images/importance_eposis.png" alt="에포시스 결함 유형별 중요도">
+      </div>
+      <!-- 케어트로핀 콘텐츠 -->
+      <div class="product-section" data-product="caretropin">
+        <img src="images/importance_caretropin.png" alt="케어트로핀 결함 유형별 중요도">
+      </div>
+      <!-- 이지에프외용액 콘텐츠 (data-product 변경: egf) -->
+      <div class="product-section" data-product="egf">
+        <img src="images/importance_egf.png" alt="이지에프외용액 결함 유형별 중요도">
+      </div>
+      <!-- rhBMP-2 콘텐츠 -->
+      <div class="product-section" data-product="rhBMP2">
+        <img src="images/importance_rhBMP2.png" alt="rhBMP-2 결함 유형별 중요도">
+      </div>
     </section>
+
 
     <!-- 섹션 5: 이물 유형 및 TIP -->
     <section id="tips" style="height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:0;">
@@ -148,26 +200,41 @@
           <img id="training-image" src="images/rubber3_front.png" alt="트레이닝 이미지">
         </div>
         <!-- 우측 컨트롤 패널 -->
-        <div class="control-panel">
+            <!-- 우측 컨트롤 패널 -->
+      <div class="control-panel">
+        <!-- 1. 뷰 변경 버튼 그룹 -->
+        <div class="view-buttons">
           <button onclick="changeView('front')">FRONT</button>
           <button onclick="changeView('side')">SIDE</button>
           <button onclick="changeView('back')">BACK</button>
           <button onclick="changeView('zoom')">ZOOM</button>
+        </div>
+        
+        <!-- 2. 정답 입력 영역 (입력 칸 + 정답 입력 버튼) -->
+        <div class="answer-section">
           <input type="text" id="answer-input" placeholder="정답 입력" onkeydown="if(event.key==='Enter'){ checkAnswer(); }">
-          <button onclick="checkAnswer()">정답 입력</button>
-          <p id="result-message"></p>
-          <div class="example-box">
-            <h3>이물 예시</h3>
-            <p>양품, 흰 이물, 검정 이물, 유리 이물,</p>
-            <p>고무전 이물, 실 이물, 누액,</p>
-            <p>고무전 높이 불량, 내용량 불량,</p>
-            <p>시린지 파손, 용기 스크래치</p>
-          </div>
+          <button onclick="checkAnswer()">정답입력</button>
+        </div>
+
+        <!-- 3. 결과 메시지를 표시할 요소 -->
+        <p id="result-message"></p>
+        
+        <!-- 3. 이물유형예시 박스 -->
+        <div class="example-box">
+          <h3>이물유형예시</h3>
+          <p>양품, 흰 이물, 검정 이물, 유리 이물,</p>
+          <p>고무전 이물, 실 이물, 누액,</p>
+          <p>고무전 높이 불량, 내용량 불량,</p>
+          <p>시린지 파손, 용기 스크래치</p>
+        </div>
+        
+        <!-- 4. 다음예시 버튼 -->
+        <div class="next-button">
           <button onclick="nextExample()">다음 예시</button>
         </div>
       </div>
-    </section>
-  </div>
+
+
   <!-- 스크립트는 그대로 -->
   <script>
     // TIP 이미지 배열 (tips, tips1, ..., tips10)

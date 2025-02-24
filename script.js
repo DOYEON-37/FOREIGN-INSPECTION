@@ -302,37 +302,24 @@ function changeView(view) {
     document.getElementById("training-image").src = trainingData[currentExample][view];
 }
 
-// 각 뷰에 해당하는 이미지 파일 경로를 지정합니다.
-    switch(view) {
-        case 'front':
-            trainingImage.src = "images/example1_front.png";
-            break;
-        case 'side':
-            trainingImage.src = "images/example1_side.png";
-            break;
-        case 'back':
-            trainingImage.src = "images/example1_back.png";
-            break;
-        case 'zoom':
-            trainingImage.src = "images/example1_zoom.png";
-            break;    
-        default:
-            console.error("잘못된 뷰: " + view);
-    }
 
-    function checkAnswer() {
-      const userInput = document.getElementById("answer-input").value.trim();
-      const resultMessage = document.getElementById("result-message");
-      
-      // trainingData[currentExample].answer는 배열이므로 includes()를 사용합니다.
-      if (trainingData[currentExample].answer.includes(userInput)) {
-        resultMessage.textContent = "정답입니다!";
-        resultMessage.style.color = "green";
-      } else {
-        resultMessage.textContent = "오답입니다.";
-        resultMessage.style.color = "red";
-      }
-    }
+function checkAnswer() {
+  const userInput = document.getElementById("answer-input").value.trim();
+  const resultMessage = document.getElementById("result-message");
+  // 예시: 현재 예시 데이터의 정답을 가져오는 코드 (실제 데이터와 로직에 따라 달라질 수 있음)
+  const answer = trainingData[currentExample].answer;
+  let correct = Array.isArray(answer) ? answer.includes(userInput) : answer.includes(userInput);
+  
+  if (correct) {
+    resultMessage.textContent = "정답입니다!";
+    resultMessage.style.color = "green";
+  } else {
+    resultMessage.textContent = "오답입니다.";
+    resultMessage.style.color = "red";
+  }
+}
+
+    
     
 
 // 다음 예시
@@ -346,23 +333,32 @@ function nextExample() {
         alert("모든 예시를 완료했습니다!");
     }
 }
- // 30개 예시 내비게이션 버튼 생성 (예시 번호로 직접 점프)
- function generateExampleNav() {
-    const navContainer = document.getElementById("example-nav");
-    navContainer.innerHTML = ""; // 기존 내용 제거
-    for (let i = 0; i < trainingData.length; i++) {
-      const btn = document.createElement("button");
-      btn.innerText = i + 1;
-      btn.onclick = function() { jumpToExample(i); };
-      navContainer.appendChild(btn);
+let currentProduct = "eposis";
+
+// 상단 제품 네비게이션 버튼 클릭 시 호출되는 함수
+function showProduct(productId) {
+  currentProduct = productId;
+  updateProductSections();
+}
+
+// 각 섹션 내의 제품별 콘텐츠를 업데이트하는 함수
+function updateProductSections() {
+  const productSections = document.querySelectorAll('.product-section');
+  productSections.forEach(section => {
+    if (section.getAttribute('data-product') === currentProduct) {
+      section.style.display = 'block';
+    } else {
+      section.style.display = 'none';
     }
-  }
+  });
+}
 
-  // 선택한 번호의 예시로 바로 이동
-  function jumpToExample(index) {
-    currentExample = index;
-    loadTrainingExample();
-  }
+// 페이지 로드 시 초기화
+window.onload = function() {
+  updateProductSections();
+  loadTrainingExample();
+  generateExampleNav();
+};
 
 
-  
+ 

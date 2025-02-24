@@ -54,6 +54,50 @@ html.mac body {
   background-color: #ffaa00;
 }
 
+/* 상단 고정 제품 교육 네비게이션 */
+/* 상단 고정 제품 교육 네비게이션 */
+#product-education {
+  position: fixed;
+  top: 0;
+  left: 240px; /* 좌측 내비게이션 너비만큼 오른쪽으로 이동 */
+  width: calc(100% - 240px);
+  background: #f2f2f2;
+  z-index: 1000;
+  border-bottom: none;
+}
+.product-nav {
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center;     /* (선택) 세로 중앙 정렬 */
+  gap: 10px;
+  padding: 10px 0;
+}
+.product-nav button {
+  padding: 15px 30px;  /* 패딩 값을 늘려서 버튼 크기 증가 */
+  font-size: 18px;     /* 폰트 크기를 늘림 */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Arial", "맑은 고딕", "Segoe UI";
+}
+.btn-eposis {
+  background-color: #ffa500;
+  color: #ffffff;
+}
+.btn-caretropin {
+  background-color: #ff591c;
+  color: #ffffff;
+}
+.btn-egf {
+  background-color: #004ed3;
+  color: #ffffff;
+}
+.btn-rhBMP2 {
+  background-color: #00b7ff;
+  color: #ffffff;
+}
+
+
 /* --- 여기서부터는 섹션 이미지 비율 등 HTML에 직접 들어간 스타일은 제외 --- */
 
 /* TIP 섹션 */
@@ -106,17 +150,68 @@ html.mac body {
 }
 
 /* 컨트롤 패널 (왼쪽으로 이동) */
+/* 컨트롤 패널 전체 레이아웃 */
 .control-panel {
-  text-align: left;
-  margin-left: 20px;  /* 필요에 따라 값 조절 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  /* 기존 margin-left, text-align 등 필요시 추가 */
 }
 
-.control-panel button:last-of-type {
-  margin-left: 130px; /* 필요에 따라 값을 조정하세요 */
-  margin-top: 40px;  /* 아래로 이동 (필요에 따라 값을 조정) */
+/* 1. 뷰 버튼 그룹 */
+.view-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.view-buttons button {
+  flex: 1;
+  padding: 10px 15px;
+  font-size: 16px;
 }
 
+/* 2. 정답 입력 영역 */
+.answer-section {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.answer-section input[type="text"] {
+  flex: 2;
+  padding: 8px;
+  font-size: 16px;
+}
+.answer-section button {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+}
 
+/* 3. 이물유형예시 박스 (기존 스타일 유지) */
+.example-box {
+  width: 300px;
+  border: 3px solid #ff5900;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* 4. 다음예시 버튼 영역 */
+.next-button {
+  width: 100%;
+}
+.next-button button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* 기존 공통 버튼 스타일 (필요시 유지) */
 button {
   margin: 5px;
   padding: 10px;
@@ -134,34 +229,7 @@ button:hover {
   background: #cc5500;
 }
 
-input {
-  padding: 8px;
-  font-size: 18px;
-  margin-top: 10px;
-}
 
-#result-message {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.example-box {
-  width: 300px;
-  border: 3px solid #ff5900;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  margin-bottom: 3px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.example-box h3 {
-  margin-top: 0;
-  margin-bottom: 1.5em;
-}
 
 html, body {
   overflow-x: hidden;
